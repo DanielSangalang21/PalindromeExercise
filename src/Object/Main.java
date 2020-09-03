@@ -3,13 +3,18 @@ package Object;
 public class Main {
 
 	public static void main(String[] args) {
-		
 		Point originOne = new Point(23,90);
+		System.out.println(originOne.x);
+	}
+	
+	public static class Point{
+		int x=0;
+		int y =0;
 		
-		Rectangle rectOne = new Rectangle(originOne);
-		System.out.println(rectOne.origin.x);
-int h = new Rectangle().height;
-System.out.println(h);
+		public Point(int x,int y) {
+			this.x = x;
+			this.y = y;
+		}
 	}
 
 }
