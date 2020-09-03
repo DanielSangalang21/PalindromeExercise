@@ -7,7 +7,7 @@ public class Main {
 		
 		testIfPalindrome("Nurses run");
 	}
-	public static void testIfPalindrome(String original) {
+	public static boolean testIfPalindrome(String original) {
 		original = original.replace(" ", "");//removes spaces
 		original = original.toLowerCase();//make string lowercase so the bit of each character and the reverse string will be the same
 		String reversed ="";
@@ -20,9 +20,11 @@ public class Main {
 		//check if string is a palindrome
 		if(reversed.equals(original)) {
 			System.out.println("String is a palindrome!");
+			return true;
 		}
 		else {
 			System.out.println("String is not a palindrome!");
+			return false;
 		}
 	}
 	
