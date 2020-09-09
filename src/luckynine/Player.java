@@ -5,7 +5,7 @@ public abstract class Player implements CanPlay {
 	private static final int NO_OF_DRAWS = 3;
 	private int noOfDraws;
 	private Hand hand;
-
+	
 	public Player() {
 		this.noOfDraws = NO_OF_DRAWS;
 		this.hand = new Hand();
