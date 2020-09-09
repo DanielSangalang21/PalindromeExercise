@@ -6,9 +6,9 @@ public class User extends Player{
 	public int deal(TalkingCard[] cards, int remNoOfDraws) {
 		int total = 0; 
 		if(remNoOfDraws<=1) {
-			for (int i = 0 ; i < cards.length ;i++ ) {
+			for (int i = 0 ; i < cards.length ; i++) {
 				if (cards[i] != null) {
-				int converted = Converter.convertRankToInt(cards[i].getRank());
+					int converted = Converter.convertRankToInt(cards[i].getRank());
 				total  += converted;
 				}
 			}

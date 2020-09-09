@@ -16,8 +16,4 @@ public class Hand {
 	public TalkingCard[] getCard() {
 		return cardsInHand;
 	}
-	
-	public void setCard(TalkingCard[] talkingCards) {
-		this.cardsInHand = talkingCards;
-	}
 }

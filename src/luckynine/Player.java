@@ -4,7 +4,6 @@ public abstract class Player implements CanPlay {
 	
 	private static final int NO_OF_DRAWS = 3;
 	private int noOfDraws;
-	//private TalkingCard[] cardsInHand = new TalkingCard[3];
 	private Hand hand;
 
 	public Player() {

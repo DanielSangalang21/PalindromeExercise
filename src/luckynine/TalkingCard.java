@@ -3,24 +3,34 @@ package luckynine;
 import java.util.Arrays;
 import java.util.List;
 
-public class TalkingCard extends Card{
+public class TalkingCard {
 	
-	public enum Suits {HEARTS, CLUBS, DIAMONDS, SPADES}
-	public enum Ranks {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING}
+	private Ranks rank;
+	private Suits suit;
+	public static TalkingCard[][] deck = generateDeckOfCards();
+	
 
-	public TalkingCard(String rank, String suit) {
-		super(rank, suit);
-		this.setRank(rank);
-		this.setSuit(suit);
-		// TODO Auto-generated constructor stub
+	public TalkingCard(Ranks rank,Suits suit) {
+		this.rank = rank;
+		this.suit = suit;
 	}
 	
+	public static enum Suits {
+			HEARTS, CLUBS, DIAMONDS, SPADES
+	}
 	
+	public static enum Ranks {
+			//Each enumerables is like an instance of enum ranks so each can call to the 
+			//constructor and each had their string suit and public getRank() method since they are instances
+			ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING
+	}
+		
+		
 	public void talk() {
 		System.out.println(this.getRank() + " OF "+ this.getSuit());
 	}
 	
-	public static TalkingCard[][] generateDeckOfCards() {
+	private static TalkingCard[][] generateDeckOfCards() {
 			
 		TalkingCard[][] cards = new TalkingCard[13][4]; 
 		
@@ -28,7 +38,7 @@ public class TalkingCard extends Card{
 		for (Ranks rank : Ranks.values()) {
 			int countInner = 0;
 			for (Suits suit : Suits.values()) {
-				cards[countOuter][countInner] = new TalkingCard(rank.toString(),suit.toString());
+				cards[countOuter][countInner] = new TalkingCard(rank,suit);
 				countInner++;
 				}
 			countOuter++;
@@ -36,7 +46,7 @@ public class TalkingCard extends Card{
 		return cards;
 	}	
 	
-	public static void displayDeck(TalkingCard[][] talkingCards) {
+	public static void displayDeckFromParameter(TalkingCard[][] talkingCards) {
 		for (int i =0; i< talkingCards.length; i++) {
 			for (int j =0; j< talkingCards[0].length; j++) {
 				try {
@@ -49,5 +59,16 @@ public class TalkingCard extends Card{
 			System.out.println();;
 		}
 	}
+	
+	public Ranks getRank() {
+		return this.rank;
+	}
+	
+	public Suits getSuit() {
+		return this.suit;
+	}
+	
+	
+
 }
 

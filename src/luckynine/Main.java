@@ -15,15 +15,14 @@ public class Main {
 			String response = sc.next();
 			System.out.println();
 			
-			if (response.toLowerCase().equals("yes")) {
-				TalkingCard[][] talkingCards = TalkingCard.generateDeckOfCards();
+			if (response.toLowerCase().equals("yes")) { 
 				User user = new User(); 
 				Computer computer = new Computer(); 
 				TalkingCard userDraw = new TalkingCard(null,null);
 				TalkingCard computerDraw = new TalkingCard(null,null);
 				  
-				LuckyNineGame game = new LuckyNineGame(talkingCards,user,computer,userDraw,computerDraw);
-				game.Start();
+				LuckyNineGame game = new LuckyNineGame(user,computer,userDraw,computerDraw);
+				game.start();
 
 			} else {
 				System.out.println("Buh bye!");

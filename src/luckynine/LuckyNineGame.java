@@ -6,22 +6,21 @@ public class LuckyNineGame {
 	private static TalkingCard[][] talkingCards;
 	private static User user; 
 	private static Computer computer; 
-	private static TalkingCard userDraw;
+	private static TalkingCard userCards;
 	private static TalkingCard computerDraw;
 	private static int userScore = 0;
 	private static int computerScore = 0;
 	private static Scanner sc;
 	
-	public LuckyNineGame(TalkingCard[][] talkingCards, User user,
-			Computer computer, TalkingCard userDraw, TalkingCard computerDraw) {
-		this.talkingCards=talkingCards;
+	public LuckyNineGame( User user,Computer computer, TalkingCard userDraw, TalkingCard computerDraw) {
 		this.user =user;
+		this.talkingCards= TalkingCard.deck;
 		this.computer = computer;
-		this.userDraw = userDraw;
+		this.userCards = userDraw;
 		this.computerDraw = computerDraw;
 	}
 	
-	public void Start() {
+	public void start() {
 		while(user.getNoOfDraws() != 0)
 		{
 			computerDraw();
@@ -49,7 +48,7 @@ public class LuckyNineGame {
 		
 		System.out.println();
 		//System.out.println("--The Deck After The Game--");
-		//TalkingCard.displayDeck(talkingCards);
+		//TalkingCard.displayDeckFromParameter(talkingCards);
 	}
 	
 	private void computerDraw() {
@@ -66,9 +65,9 @@ public class LuckyNineGame {
 		  System.out.println();
 		  System.out.println("Your turn");
 		  System.out.println();
-		  userDraw = user.drawCard(talkingCards);
-		  user.getHand().addCardToHand(userDraw);
-		  System.out.println("You have drawn "+userDraw.getRank() + " OF " + userDraw.getSuit());
+		  userCards = user.drawCard(talkingCards);
+		  user.getHand().addCardToHand(userCards);
+		  System.out.println("You have drawn "+userCards.getRank() + " OF " + userCards.getSuit());
 		  System.out.println("Your new set of card(s) is..."); 
 		  user.showCardsInHands();
 		  System.out.println("You have "+user.getNoOfDraws()+" draw(s) remaining");
